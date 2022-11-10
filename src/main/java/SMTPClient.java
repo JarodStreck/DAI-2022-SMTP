@@ -24,8 +24,8 @@ public class SMTPClient {
 
                     //Read response
                     response = this.read();
-
                     System.out.println(response);
+                    processMsg(response);
                 }
             }
         } catch (IOException ioe) {
@@ -76,6 +76,10 @@ public class SMTPClient {
         } catch (IOException ioe_is) {
             throw new IOException("An I/O error occurred reading the response");
         }
+    }
+    public String processMsg(String msg){
+
+        return msg;
     }
 
 }
