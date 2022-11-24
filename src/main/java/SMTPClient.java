@@ -20,7 +20,8 @@ public class SMTPClient {
                 System.out.println(this.read());
                 while (this.isConnected()) {
                     //Write request
-                    this.write(stdin.readLine());
+                    String request = stdin.readLine() + "\r\n";
+                    this.write(request);
 
                     //Read response
                     response = this.read();
