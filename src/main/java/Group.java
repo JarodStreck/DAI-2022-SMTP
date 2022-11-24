@@ -6,6 +6,7 @@ public class Group {
     private Victim sender;
     private int size;
     Group(int size){
+        //TODO
         if(size < 3){
             //nonono can't
         }

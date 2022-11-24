@@ -1,7 +1,9 @@
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Vector;
 
 public class Prank {
    private Group[] groups;
@@ -12,22 +14,31 @@ public class Prank {
         groups = new Group[numberOfGroup];
         this.victimFile = victimFile;
         this.messageFile = messageFile;
-        Victim[] victims = readVictimsFromFile(victimFile);
-        int size = victims.length / numberOfGroup;
+        Vector<Victim> victims = readVictimsFromFile(victimFile);
+        int size = victims.size() / numberOfGroup;
         this.groups = generateGroups(victims,size);
     }
 
-    private Victim[] readVictimsFromFile(String filename) throws IOException {
+    private Vector<Victim> readVictimsFromFile(String filename) throws IOException {
         //Lis le fichier victime.txt et les transform en objec victim
+        BufferedReader input = null;
+        Vector<Victim> victims = new Vector<Victim>();
+        int nbVictims = 0 ;
+
         try{
-            InputStreamReader input = new FileReader(filename, StandardCharsets.UTF_8);
+            input = new BufferedReader(new FileReader(filename, StandardCharsets.UTF_8));
+
         }catch (IOException e){
             e.printStackTrace();
         }
+        String email;
+        while((email = input.readLine()) != null){
+            victims.add(new Victim(email));
+        };
 
-        return new Victim[0];
+        return victims;
     }
-    private Group[] generateGroups(Victim[] victims,int size){
+    private Group[] generateGroups(Vector<Victim> victims,int size){
         //Va Générér les groups selon les victim lu dans le fichier
      return new Group[0];
     }
