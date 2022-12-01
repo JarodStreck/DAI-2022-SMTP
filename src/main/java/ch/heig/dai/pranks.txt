@@ -1,0 +1,8 @@
+s<test1>
+m<this is a test mail1>
+
+s<test2>
+m<this is a test mail2>
+
+s<test3>
+m<this is a test mail3>
