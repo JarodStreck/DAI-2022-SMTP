@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
-        Group group = new Group(5);
+        //Group group = new Group(5);
 
         SMTPClient client = new SMTPClient();
 
