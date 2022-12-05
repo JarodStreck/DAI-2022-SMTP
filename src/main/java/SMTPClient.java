@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.logging.Logger;
 
 public class SMTPClient {
@@ -34,7 +35,11 @@ public class SMTPClient {
                 os.write("Content-Type: text/plain; charset=utf-8" + EOL);
                 os.write("From: fromplaceholder@gmail.com" + EOL);
                 os.write("To: toplaceholder@gmail.com" + EOL);
-                os.write("Subject: Email de test" + EOL);
+                String subject = "Email de test";
+                // Reference for base64 encoding
+                // https://www.telemessage.com/developer/faq/how-do-i-encode-non-ascii-characters-in-an-email-subject-line/
+                os.write("Subject:=?utf-8?B?" + Base64.getEncoder().encodeToString(subject.getBytes())
+                        + "?=" + EOL);
                 os.write(EOL);
                 os.flush();
                 os.write("Salut c'est moi loclahost" + EOL);
