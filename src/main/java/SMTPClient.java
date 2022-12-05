@@ -2,32 +2,55 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.util.logging.Logger;
 
 public class SMTPClient {
     private Socket socket;
     private BufferedReader is;
     private BufferedWriter os;
 
+    private static final Logger LOG = Logger.getLogger(SMTPClient.class.getName());
+    private static final String EOL = "\r\n";
+
     public boolean isConnected() {
         return !socket.isClosed();
     }
 
     public void run(){
-        BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-        String response;
         try {
             if (this.connect("localhost", 25)) {
-                System.out.println(this.read());
-                while (this.isConnected()) {
-                    //Write request
-                    String request = stdin.readLine() + "\r\n";
-                    this.write(request);
-
-                    //Read response
-                    response = this.read();
-                    System.out.println(response);
-                    processMsg(response);
+                LOG.info("Send mail with SMTP protocol.");
+                String line = is.readLine();
+                LOG.info(line);
+                write("EHLO localhost");
+                while (line.startsWith("250-")) {
+                    line = is.readLine();
+                    LOG.info(line);
                 }
+                write("MAIL FROM:fromplaceholder@gmail.com");
+                write("RCPT TO:toplaceholder@gmail.com");
+                write("DATA");
+                //TODO on peut remplacer ça par un seul write() en mettant tout dedans
+                os.write("Content-Type: text/plain; charset=utf-8" + EOL);
+                os.write("From: fromplaceholder@gmail.com" + EOL);
+                os.write("To: toplaceholder@gmail.com" + EOL);
+                os.write("Subject: Email de test" + EOL);
+                os.write(EOL);
+                os.flush();
+                os.write("Salut c'est moi loclahost" + EOL);
+                write(".");
+                line = is.readLine();
+                LOG.info(line);
+
+                // QUIT
+                write("QUIT");
+                is.close();
+                os.close();
+                socket.close();
+                LOG.info("Mail delivered.\n");
+
+
+
             }
         } catch (IOException ioe) {
             System.err.println("Error reading the input");
@@ -60,27 +83,22 @@ public class SMTPClient {
 
     public void write(String request) {
         try {
-            //Don't forget the endline, otherwise the server won't read the request
-            os.write(request.concat("\n"));
+            os.write(request + EOL);
             os.flush();
+            checkResponse();
         } catch (IOException ioe_os) {
+            ioe_os.printStackTrace();
             throw new RuntimeException("An I/O error occurred writing the request");
         }
     }
 
-    public String read() throws IOException {
-        try {
-            StringBuilder response = new StringBuilder();
-            while(is.ready() || response.length() == 0)
-                response.append(is.readLine().concat("\n"));
-            return response.toString();
-        } catch (IOException ioe_is) {
-            throw new IOException("An I/O error occurred reading the response");
+    private void checkResponse() throws IOException {
+        String line = is.readLine();
+        if (!line.startsWith("250")) {
+            throw new IOException("SMTP response error : " + line);
         }
+        LOG.info(line);
     }
-    public String processMsg(String msg){
 
-        return msg;
-    }
 
 }
