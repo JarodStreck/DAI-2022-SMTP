@@ -49,4 +49,10 @@ public class Group {
         }
         Collections.shuffle(randomNumbers);
     }
+    public Victim getVictimAt(int index){
+        return targets.get(index);
+    }
+    public Victim getSender(){
+        return sender;
+    }
 }
