@@ -1,5 +1,7 @@
 package ch.heig.dai.smtp;
 
+import ch.heig.dai.mail.Mail;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -19,7 +21,8 @@ public class Client {
         return !socket.isClosed();
     }
 
-    public void run(){
+    //TODO : Here we must implement a public method send(Mail mail) and use connect from the main
+    public void run(Mail mail, int port, String host){
         try {
             if (this.connect("localhost", 25)) {
                 LOG.info("Send mail with SMTP protocol.");
