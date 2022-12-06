@@ -1,3 +1,5 @@
+package ch.heig.dai.smtp;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -5,12 +7,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.logging.Logger;
 
-public class SMTPClient {
+public class Client {
     private Socket socket;
     private BufferedReader is;
     private BufferedWriter os;
 
-    private static final Logger LOG = Logger.getLogger(SMTPClient.class.getName());
+    private static final Logger LOG = Logger.getLogger(Client.class.getName());
     private static final String EOL = "\r\n";
 
     public boolean isConnected() {

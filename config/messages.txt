@@ -1,0 +1,13 @@
+s:Subject 1
+m:This is a test mail
+with accents éàä
+And special characters 📨 (╯°□°)╯︵
+END
+
+s:Subject 2
+m:this is a test mail2
+END
+
+s:Subject 3
+m:this is a test mail3
+END

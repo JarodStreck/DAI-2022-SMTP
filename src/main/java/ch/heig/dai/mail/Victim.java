@@ -1,7 +1,9 @@
+package ch.heig.dai.mail;
+
 public class Victim {
-    private String email;
-    static int id;
-    Victim(String email){
+    private final String email;
+
+    public Victim(String email){
         this.email = email;
     }
 
