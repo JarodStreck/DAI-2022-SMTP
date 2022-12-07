@@ -1,5 +1,5 @@
 s:You have been pranked
-m:Hello there, you got pranked! Shame on you!
+m:Hello there, you've been pranked! Shame on you!
 (╯°□°)╯︵
 END
 
