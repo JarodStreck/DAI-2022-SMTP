@@ -8,13 +8,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ConfigLoader {
-    private static Pattern MAIL_PATTERN = null;
+    private static Pattern MAIL_PATTERN;
     private static final String VICTIMS_PATH = "./config/victims.txt",
             CFG_PATH = "./config/config.properties",
             MSG_PATH = "./config/messages.txt",
@@ -28,9 +29,9 @@ public class ConfigLoader {
     public ConfigLoader() {
         try{
             victims = getVictimsFromFile();
-            messages = getMessageFromFile();
+            messages = getMessagesFromFile();
             getConfigFromFile();
-            MAIL_PATTERN = getRfc822_RegexAddressValidation();
+            MAIL_PATTERN = getRegexFromFile();
             checkConfig();
         }
         catch(IOException e){
@@ -48,12 +49,15 @@ public class ConfigLoader {
 
         String line;
         while ((line = reader.readLine()) != null) {
+            if(isAddressValid(line))
+                throw new RuntimeException("The mail address : " + line + " is invalid");
             victims.add(new Victim(line));
         }
+        Collections.shuffle(victims);
         return victims;
     }
 
-    private List<Message> getMessageFromFile() throws IOException {
+    private List<Message> getMessagesFromFile() throws IOException {
         List<Message> messages = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(MSG_PATH,
                 StandardCharsets.UTF_8));
@@ -101,7 +105,7 @@ public class ConfigLoader {
      * @return The pattern used to match the mail conformity
      * @throws IOException If there is an error for handling the file containing the regex
      */
-    private static Pattern getRfc822_RegexAddressValidation()throws IOException{
+    private static Pattern getRegexFromFile()throws IOException{
         BufferedReader reader = new BufferedReader(new FileReader(REGEX_PATH,
                 StandardCharsets.UTF_8));
 
@@ -114,7 +118,7 @@ public class ConfigLoader {
         return Pattern.compile(regex.toString());
     }
 
-    private boolean mailAddressIsValid(String mail){
+    private boolean isAddressValid(String mail){
         Matcher matcher = MAIL_PATTERN.matcher(mail);
         return matcher.find();
     }
@@ -126,10 +130,6 @@ public class ConfigLoader {
 
         if (messages.size() == 0)
             throw new RuntimeException("No message detected");
-
-        for(Victim v : victims)
-            if(!mailAddressIsValid(v.getEmail()))
-                throw new RuntimeException("The mail address : " + v.getEmail() + " is invalid");
     }
 
     public int getServerPort() {
