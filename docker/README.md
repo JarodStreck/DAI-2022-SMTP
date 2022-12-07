@@ -2,7 +2,7 @@
 
 Go to ./docker and run :
 ````cmd
-build -t mockmock .
+docker build -t mockmock .
 ````
 ## Run Docker image
 
