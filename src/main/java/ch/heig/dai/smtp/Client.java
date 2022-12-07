@@ -38,7 +38,6 @@ public class Client {
                 write("RCPT TO:" + s);
 
             write("DATA");
-            //TODO on peut remplacer ça par un seul write() en mettant tout dedans
             os.write("Content-Type: text/html; charset=\"utf-8\"" + EOL);
             os.write("From: " + mail.getSenderMail() + EOL);
             os.write("To: " + mail.getRecipientsMail().get(0));

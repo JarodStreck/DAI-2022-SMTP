@@ -118,7 +118,7 @@ java -jar DAI-2022-SMTP-1.0-SNAPSHOT.jar
 
 ## Class diagram
 
-![UML](C:\Users\timot\Documents\HEIG\DAI\Labos\DAI-2022-SMTP\figures\UML.png)
+![UML](.\figures\UML.png)
 
 ## Classes description
 
