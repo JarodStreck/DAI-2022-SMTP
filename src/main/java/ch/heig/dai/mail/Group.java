@@ -3,6 +3,7 @@ package ch.heig.dai.mail;
 import java.util.*;
 
 public class Group {
+    private static int groupId = 0;
     private final ArrayList<Victim> recipients;
     private final Victim sender;
 
@@ -13,23 +14,21 @@ public class Group {
         if(victims.size() < size)
             throw new RuntimeException("The given list does not contains enough victims");
 
+        int offset = size * groupId;
+
         //Copy the given list
         List<Victim> temp = new ArrayList<>(victims);
 
-        //Shuffle it
-        Collections.shuffle(temp);
-
         //The sender is the first victim from the list
-        sender = temp.get(0);
+        sender = temp.get(offset);
 
         //The victims are from 1 to size+1 from the list
-        recipients = new ArrayList<>(temp.subList(1, size));
+        recipients = new ArrayList<>(temp.subList(1 + offset, size + offset));
+        groupId++;
     }
 
-    public List<Victim> getRecipients(){
-        return recipients;
-    }
-    public Victim getSender(){
-        return sender;
+    public Mail generate(List<Message> messages){
+        Collections.shuffle(messages);
+        return new Mail(messages.get(0), sender, recipients);
     }
 }
