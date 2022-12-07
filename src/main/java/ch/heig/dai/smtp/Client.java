@@ -19,9 +19,6 @@ public class Client {
     private static final Logger LOG = Logger.getLogger(Client.class.getName());
     private static final String EOL = "\r\n";
 
-    public boolean isConnected() {
-        return !socket.isClosed();
-    }
 
     public void send(Mail mail) {
         try {
@@ -65,26 +62,21 @@ public class Client {
         }
     }
 
-    public boolean connect(String host, int port) {
+    public void connect(String host, int port) {
         try {
             this.socket = new Socket(host, port);
             os = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),
                     StandardCharsets.UTF_8));
             is = new BufferedReader(new InputStreamReader(socket.getInputStream(),
                     StandardCharsets.UTF_8));
-            return true;
         } catch (UnknownHostException uhe) {
             System.err.println("Cannot connect to the host : " + host);
-            return false;
         } catch (IOException ioe) {
             System.err.println("An I/O error occurred when creating the socket");
-            return false;
         } catch (IllegalArgumentException iae) {
             System.err.println("The given port (" + port + ") is not allowed");
-            return false;
         } catch (SecurityException se) {
             System.err.println("Security exception occurred during connexion");
-            return false;
         }
     }
 
@@ -100,7 +92,7 @@ public class Client {
         }
     }
 
-    public void write(String request) {
+    private void write(String request) {
         try {
             os.write(request + EOL);
             os.flush();

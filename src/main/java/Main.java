@@ -20,6 +20,9 @@ public class Main {
         client.connect(cl.getServerAddress(), cl.getServerPort());
 
         //sending n mails with groups of 4 victims
+        //TODO taile du groupe doit être déduit et pas hardcodé
+        // (nbvictims / nbOfGroups) et pour le dernier group ajouter les membre restant
+        //
         for(int i = 0; i < cl.getNumberOfGroups(); i++){
             client.send(generator.generate(new Group(4, victims)));
         }
