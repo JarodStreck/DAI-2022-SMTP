@@ -1,5 +1,10 @@
 package ch.heig.dai.mail;
 
+/**
+ * Represents a message with a subject and a content
+ *
+ * @author Jarod Streckeisen, Timothee Van Hove
+ */
 public class Message {
     private final String subject;
     private final String content;

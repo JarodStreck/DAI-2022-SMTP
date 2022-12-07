@@ -3,6 +3,7 @@ package ch.heig.dai.config;
 
 import ch.heig.dai.mail.Message;
 import ch.heig.dai.mail.Victim;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,6 +15,11 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Handles the configuration loading and validation
+ *
+ * @author Jarod Streckeisen, Timothee Van Hove
+ */
 public class ConfigLoader {
     private static Pattern MAIL_PATTERN;
     private static final String VICTIMS_PATH = "./config/victims.txt",
@@ -27,23 +33,21 @@ public class ConfigLoader {
     private int numberOfGroups;
 
     public ConfigLoader() {
-        try{
+        try {
+            MAIL_PATTERN = getRegexFromFile();
             victims = getVictimsFromFile();
             messages = getMessagesFromFile();
             getConfigFromFile();
-            MAIL_PATTERN = getRegexFromFile();
-            checkConfig();
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             System.err.println("Unable to load one of the config file correctly");
-        }
-        catch(RuntimeException e){
+        } catch (RuntimeException e) {
             System.err.println("The configuration has errors : " + e.getMessage());
         }
     }
 
     /**
      * Get the victims from the victims config file
+     *
      * @return a list of Victim
      * @throws IOException if an error occurred when file is open or read
      */
@@ -54,16 +58,23 @@ public class ConfigLoader {
 
         String line;
         while ((line = reader.readLine()) != null) {
-            if(isAddressValid(line))
+            if (!isAddressValid(line))
                 throw new RuntimeException("The mail address : " + line + " is invalid");
+
             victims.add(new Victim(line));
         }
+        //Checks if the number of retrieve emails is enough
+        if (victims.size() < 3)
+            throw new RuntimeException("The minimum group size is 3 victims, " +
+                    victims.size() + " found.");
+
         Collections.shuffle(victims);
         return victims;
     }
 
     /**
      * Get the messages from the messages config file
+     *
      * @return a list of Message
      * @throws IOException if an error occurred when file is open or read
      */
@@ -72,85 +83,82 @@ public class ConfigLoader {
         BufferedReader reader = new BufferedReader(new FileReader(MSG_PATH,
                 StandardCharsets.UTF_8));
 
-            String line;
-            StringBuilder content = new StringBuilder(), subject = new StringBuilder();
-            boolean ignoreNextBlank = false;
-            while ((line = reader.readLine()) != null) {
-                if (line.startsWith("s:")) {
-                    subject.append(line.replaceFirst("s:", ""));
-                    ignoreNextBlank = false;
-                } else if (line.startsWith("m:")) {
-                    content.append(line.replaceFirst("m:", "")).append("\n");
-                    ignoreNextBlank = false;
-                }
-                else if(line.startsWith("END")){
-                    messages.add(new Message(subject.toString(), content.toString()));
-                    subject.delete(0, subject.length());
-                    content.delete(0, content.length());
-                    ignoreNextBlank = true;
-                }
-                else if(ignoreNextBlank){}
-                else {
-                    content.append(line).append("\n");
-                }
+        String line;
+        StringBuilder content = new StringBuilder(), subject = new StringBuilder();
+        boolean ignoreNextBlank = false;
+        while ((line = reader.readLine()) != null) {
+            if (line.startsWith("s:")) {
+                subject.append(line.replaceFirst("s:", ""));
+                ignoreNextBlank = false;
+            } else if (line.startsWith("m:")) {
+                content.append(line.replaceFirst("m:", "")).append("\n");
+                ignoreNextBlank = false;
+            } else if (line.startsWith("END")) {
+                messages.add(new Message(subject.toString(), content.toString()));
+                subject.delete(0, subject.length());
+                content.delete(0, content.length());
+                ignoreNextBlank = true;
+            } else if (ignoreNextBlank) {
+            } else {
+                content.append(line).append("\n");
             }
+        }
+        //Checks is any message has been loaded
+        if (messages.size() == 0)
+            throw new RuntimeException("No message detected");
+
         return messages;
     }
 
     /**
      * Get the config from the config file
+     *
      * @throws IOException if an error occurred when file is open or read
      */
-    private void getConfigFromFile()throws IOException {
+    private void getConfigFromFile() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(CFG_PATH,
                 StandardCharsets.UTF_8));
 
-            Properties prop = new Properties();
-            prop.load(reader);
-            serverAddress = prop.getProperty("serverAddress");
-            serverPort = Integer.parseInt(prop.getProperty("serverPort"));
-            numberOfGroups = Integer.parseInt(prop.getProperty("groups"));
+        Properties prop = new Properties();
+        prop.load(reader);
+        serverAddress = prop.getProperty("serverAddress");
+        serverPort = Integer.parseInt(prop.getProperty("serverPort"));
+        numberOfGroups = Integer.parseInt(prop.getProperty("groups"));
     }
 
     /**
-     * Gets the regex used to verify if an email address is valid according to RFC 822
+     * Gets the regex used to verify if an email address is valid according to RFC 5322
      *
-     * @see <a href="https://www.ex-parrot.com/pdw/Mail-RFC822-Address.htmlhttps://www.ex-parrot.com/pdw/Mail-RFC822-Address.html"></a>
      * @return The pattern used to match the mail conformity
      * @throws IOException If there is an error for handling the file containing the regex
+     * @see <a href="https://datatracker.ietf.org/doc/html/rfc5322"></a>
      */
-    private static Pattern getRegexFromFile()throws IOException{
+    private static Pattern getRegexFromFile() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(REGEX_PATH,
                 StandardCharsets.UTF_8));
 
         String line;
         StringBuilder regex = new StringBuilder();
         while ((line = reader.readLine()) != null)
-            if(!line.startsWith("Source="))
+            if (!line.startsWith("Source="))
                 regex.append(line);
 
         return Pattern.compile(regex.toString());
     }
 
-    private boolean isAddressValid(String mail){
-        Matcher matcher = MAIL_PATTERN.matcher(mail);
+    /**
+     * Ensures that the email address complies with RFC 5322
+     * @param address
+     * @return
+     */
+    private boolean isAddressValid(String address) {
+        Matcher matcher = MAIL_PATTERN.matcher(address);
         return matcher.find();
     }
 
     /**
-     * TODO STP trouve une description
-     */
-    private void checkConfig(){
-        if (victims.size() < 3)
-            throw new RuntimeException("The minimum group size is 3 victims, " +
-                    victims.size() + " found.");
-
-        if (messages.size() == 0)
-            throw new RuntimeException("No message detected");
-    }
-
-    /**
      * Get the server port
+     *
      * @return the server port as int
      */
     public int getServerPort() {
@@ -159,6 +167,7 @@ public class ConfigLoader {
 
     /**
      * Get the server address
+     *
      * @return the server address as String
      */
     public String getServerAddress() {
@@ -167,6 +176,7 @@ public class ConfigLoader {
 
     /**
      * Get the messages
+     *
      * @return a list of Message
      */
     public List<Message> getMessages() {
@@ -175,6 +185,7 @@ public class ConfigLoader {
 
     /**
      * Get the victimes
+     *
      * @return a list of Victim
      */
     public List<Victim> getVictims() {
@@ -183,6 +194,7 @@ public class ConfigLoader {
 
     /**
      * Get the number of Group
+     *
      * @return the number of groups
      */
     public int getNumberOfGroups() {

@@ -3,6 +3,11 @@ package ch.heig.dai.mail;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a mail with recipients, a sender, and a message
+ *
+ * @author Jarod Streckeisen, Timothee Van Hove
+ */
 public class Mail {
     private final Victim sender;
     private final List<Victim> recipients;
@@ -47,5 +52,15 @@ public class Mail {
         for(Victim r : recipients)
             emails.add(r.getEmail());
         return emails;
+    }
+
+    /**
+     * Returns the SMTP content type matching the content of the message content
+     * @return The content type as String
+     */
+    public String getContentType(){
+        if(message.getContent().contains("<!doctype html>"))
+            return "Content-Type: text/html;";
+        return "Content-Type: text/plain;";
     }
 }

@@ -6,22 +6,26 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Base64;
-import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * Handles the connection to the SMTP server and the email sending process
+ *
+ * @author Jarod Streckeisen, Timothee Van Hove
+ */
 public class Client {
     private Socket socket;
     private BufferedReader is;
     private BufferedWriter os;
-
     private static final Logger LOG = Logger.getLogger(Client.class.getName());
     private static final String EOL = "\r\n";
 
     /**
-     * Send an email to the SMTP server
+     * Send an email to the SMTP server from a Mail object
+     *
      * @param mail mail that we want to send
+     * @see <a href="https://www.telemessage.com/developer/faq/how-do-i-encode-non-ascii-characters-in-an-email-subject-line/">base64 encoding</a>
      */
     public void send(Mail mail) {
         try {
@@ -33,26 +37,30 @@ public class Client {
                 line = is.readLine();
                 LOG.info(line);
             }
+            //Sender
             write("MAIL FROM:" + mail.getSenderMail());
-            for(String s : mail.getRecipientsMail())
+            for (String s : mail.getRecipientsMail())
                 write("RCPT TO:" + s);
 
+            //Data of the mail
             write("DATA");
-            os.write("Content-Type: text/html; charset=\"utf-8\"" + EOL);
-            os.write("From: " + mail.getSenderMail() + EOL);
-            os.write("To: " + mail.getRecipientsMail().get(0));
-            for (int i = 1; i < mail.getRecipientsMail().size(); i++) {
-                os.write(", " + mail.getRecipientsMail().get(i));
-            }
-            os.write(EOL);
-            // Reference for base64 encoding
-            // https://www.telemessage.com/developer/faq/how-do-i-encode-non-ascii-characters-in-an-email-subject-line/
-            os.write("Subject:=?utf-8?B?" + Base64.getEncoder().encodeToString(mail.getSubject().getBytes())
-                    + "?=" + EOL);
-            os.write(EOL);
-            os.flush();
-            os.write(mail.getContent() + EOL);
-            write(".");
+            StringBuilder request = new StringBuilder();
+            request.append(mail.getContentType()).append(" charset=\"utf-8\"" + EOL);
+            request.append("From: ").append(mail.getSenderMail()).append(EOL);
+            request.append("To: ").append(mail.getRecipientsMail().get(0));
+            for (int i = 1; i < mail.getRecipientsMail().size(); i++)
+                request.append(", ").append(mail.getRecipientsMail().get(i));
+
+            request.append(EOL);
+            request.append("Subject:=?utf-8?B?").append(
+                    Base64.getEncoder().encodeToString(mail.getSubject().getBytes())).append(
+                    "?=" + EOL);
+            request.append(EOL);
+            request.append(mail.getContent());
+
+            //End sequence
+            request.append(EOL).append(".");
+            write(request.toString());
             line = is.readLine();
             LOG.info(line);
             LOG.info("Mail delivered.\n");
@@ -65,7 +73,8 @@ public class Client {
     }
 
     /**
-     * Connect to the STMP server
+     * Connect to the SMTP server
+     *
      * @param host address of the server
      * @param port port of the server
      */
@@ -90,20 +99,20 @@ public class Client {
     /**
      * Close all ressources used by the SMTP client
      */
-    public void close(){
-        try{
+    public void close() {
+        try {
             write("QUIT");
             is.close();
             os.close();
             socket.close();
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     /**
      * Send a message to the SMTP server
+     *
      * @param request string containing the message to send
      */
     private void write(String request) {
@@ -119,6 +128,7 @@ public class Client {
 
     /**
      * Get and check the response of the server
+     *
      * @throws IOException if the server send a bad response
      */
     private void checkResponse() throws IOException {
@@ -128,6 +138,4 @@ public class Client {
         }
         LOG.info(line);
     }
-
-
 }
