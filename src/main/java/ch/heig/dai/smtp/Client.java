@@ -19,7 +19,10 @@ public class Client {
     private static final Logger LOG = Logger.getLogger(Client.class.getName());
     private static final String EOL = "\r\n";
 
-
+    /**
+     * Send an email to the SMTP server
+     * @param mail mail that we want to send
+     */
     public void send(Mail mail) {
         try {
             LOG.info("Send mail with SMTP protocol.");
@@ -62,6 +65,11 @@ public class Client {
         }
     }
 
+    /**
+     * Connect to the STMP server
+     * @param host address of the server
+     * @param port port of the server
+     */
     public void connect(String host, int port) {
         try {
             this.socket = new Socket(host, port);
@@ -80,6 +88,9 @@ public class Client {
         }
     }
 
+    /**
+     * Close all ressources used by the SMTP client
+     */
     public void close(){
         try{
             write("QUIT");
@@ -92,6 +103,10 @@ public class Client {
         }
     }
 
+    /**
+     * Send a message to the SMTP server
+     * @param request string containing the message to send
+     */
     private void write(String request) {
         try {
             os.write(request + EOL);
@@ -103,6 +118,10 @@ public class Client {
         }
     }
 
+    /**
+     * Get and check the response of the server
+     * @throws IOException if the server send a bad response
+     */
     private void checkResponse() throws IOException {
         String line = is.readLine();
         if (!line.startsWith("250")) {
