@@ -39,7 +39,7 @@ public class Client {
 
             write("DATA");
             //TODO on peut remplacer ça par un seul write() en mettant tout dedans
-            os.write("Content-Type: text; charset=utf-8" + EOL);
+            os.write("Content-Type: text/html; charset=\"utf-8\"" + EOL);
             os.write("From: " + mail.getSenderMail() + EOL);
             os.write("To: " + mail.getRecipientsMail().get(0));
             for (int i = 1; i < mail.getRecipientsMail().size(); i++) {
