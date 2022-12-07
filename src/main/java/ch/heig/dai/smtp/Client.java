@@ -16,24 +16,13 @@ public class Client {
     private BufferedReader is;
     private BufferedWriter os;
 
-    private final String host;
-    private final int port;
-
     private static final Logger LOG = Logger.getLogger(Client.class.getName());
     private static final String EOL = "\r\n";
-
-    public Client(String host,int port){
-        this.host = host;
-        this.port = port;
-    }
 
     public boolean isConnected() {
         return !socket.isClosed();
     }
-    public void send(Mail mail){
-        run(mail);
-    }
-    //TODO : Here we must implement a public method send(Mail mail) and use connect from the main
+
     public void send(Mail mail) {
         try {
             LOG.info("Send mail with SMTP protocol.");
