@@ -34,7 +34,7 @@ groups=5
 
 ### victims.txt
 
-This is the list of your victims. they must be valid email addresses that follows the RFC 5322 (more info  [here](#https://datatracker.ietf.org/doc/html/rfc5322) and [here](#https://stackoverflow.com/questions/13992403/regex-validation-of-email-addresses-according-to-rfc5321-rfc5322)). If at least one mail is not valid, the program will throw an exception and exit. Each line must contain a single email address, without any space between them.
+This is the list of your victims. they must be valid email addresses that follows the RFC 5322 (more info  [here](https://datatracker.ietf.org/doc/html/rfc5322) and [here](https://stackoverflow.com/questions/13992403/regex-validation-of-email-addresses-according-to-rfc5321-rfc5322)). If at least one mail is not valid, the program will throw an exception and exit. Each line must contain a single email address, without any space between them.
 
 If you plan to send pranks to 5 groups, you will need a minimum of 15 email addresses, because the minimum size of a group is 3 (1 sender and 2 recipients).
 
