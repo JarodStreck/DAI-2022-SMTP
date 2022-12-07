@@ -22,53 +22,49 @@ public class Client {
     }
 
     //TODO : Here we must implement a public method send(Mail mail) and use connect from the main
-    public void run(Mail mail, int port, String host){
+    public void send(Mail mail) {
         try {
-            if (this.connect("localhost", 25)) {
-                LOG.info("Send mail with SMTP protocol.");
-                String line = is.readLine();
-                LOG.info(line);
-                write("EHLO localhost");
-                while (line.startsWith("250-")) {
-                    line = is.readLine();
-                    LOG.info(line);
-                }
-                write("MAIL FROM:fromplaceholder@gmail.com");
-                write("RCPT TO:toplaceholder@gmail.com");
-                write("DATA");
-                //TODO on peut remplacer ça par un seul write() en mettant tout dedans
-                os.write("Content-Type: text/plain; charset=utf-8" + EOL);
-                os.write("From: fromplaceholder@gmail.com" + EOL);
-                os.write("To: toplaceholder@gmail.com" + EOL);
-                String subject = "Email de test";
-                // Reference for base64 encoding
-                // https://www.telemessage.com/developer/faq/how-do-i-encode-non-ascii-characters-in-an-email-subject-line/
-                os.write("Subject:=?utf-8?B?" + Base64.getEncoder().encodeToString(subject.getBytes())
-                        + "?=" + EOL);
-                os.write(EOL);
-                os.flush();
-                os.write("Salut c'est moi loclahost" + EOL);
-                write(".");
+            LOG.info("Send mail with SMTP protocol.");
+            String line = is.readLine();
+            LOG.info(line);
+            write("EHLO localhost");
+            while (line.startsWith("250-")) {
                 line = is.readLine();
                 LOG.info(line);
-
-                // QUIT
-                write("QUIT");
-                is.close();
-                os.close();
-                socket.close();
-                LOG.info("Mail delivered.\n");
-
-
-
             }
+            write("MAIL FROM:" + mail.getSenderMail());
+            for(String s : mail.getRecipientsMail())
+                write("RCPT TO:" + s);
+
+            write("DATA");
+            //TODO on peut remplacer ça par un seul write() en mettant tout dedans
+            os.write("Content-Type: text; charset=utf-8" + EOL);
+            os.write("From: " + mail.getSenderMail() + EOL);
+            os.write("To: " + mail.getRecipientsMail().get(0));
+            for (int i = 1; i < mail.getRecipientsMail().size(); i++) {
+                os.write(", " + mail.getRecipientsMail().get(i));
+            }
+            os.write(EOL);
+            // Reference for base64 encoding
+            // https://www.telemessage.com/developer/faq/how-do-i-encode-non-ascii-characters-in-an-email-subject-line/
+            os.write("Subject:=?utf-8?B?" + Base64.getEncoder().encodeToString(mail.getSubject().getBytes())
+                    + "?=" + EOL);
+            os.write(EOL);
+            os.flush();
+            os.write(mail.getContent() + EOL);
+            write(".");
+            line = is.readLine();
+            LOG.info(line);
+            LOG.info("Mail delivered.\n");
+
         } catch (IOException ioe) {
             System.err.println("Error reading the input");
         } catch (RuntimeException re) {
             System.err.println(re.getMessage());
         }
     }
-    boolean connect(String host, int port) {
+
+    public boolean connect(String host, int port) {
         try {
             this.socket = new Socket(host, port);
             os = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),
@@ -88,6 +84,18 @@ public class Client {
         } catch (SecurityException se) {
             System.err.println("Security exception occurred during connexion");
             return false;
+        }
+    }
+
+    public void close(){
+        try{
+            write("QUIT");
+            is.close();
+            os.close();
+            socket.close();
+        }
+        catch(IOException e){
+            e.printStackTrace();
         }
     }
 

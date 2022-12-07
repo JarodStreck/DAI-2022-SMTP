@@ -1,7 +1,7 @@
 s:Subject 1
 m:This is a test mail
 with accents éàä
-And special characters 📨 (╯°□°)╯︵
+And special characters 📧 (╯°□°)╯︵
 END
 
 s:Subject 2
