@@ -9,10 +9,18 @@ public class Message {
         this.content = content;
     }
 
+    /**
+     * Get the subject of a message
+     * @return a string containing the subject
+     */
     public String getSubject() {
         return subject;
     }
 
+    /**
+     * Get the content of the message
+     * @return a string containing the message
+     */
     public String getContent() {
         return content;
     }

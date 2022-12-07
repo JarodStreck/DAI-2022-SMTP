@@ -42,6 +42,11 @@ public class ConfigLoader {
         }
     }
 
+    /**
+     * Get the victims from the victims config file
+     * @return a list of Victim
+     * @throws IOException if an error occurred when file is open or read
+     */
     private List<Victim> getVictimsFromFile() throws IOException {
         ArrayList<Victim> victims = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(VICTIMS_PATH,
@@ -57,6 +62,11 @@ public class ConfigLoader {
         return victims;
     }
 
+    /**
+     * Get the messages from the messages config file
+     * @return a list of Message
+     * @throws IOException if an error occurred when file is open or read
+     */
     private List<Message> getMessagesFromFile() throws IOException {
         List<Message> messages = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(MSG_PATH,
@@ -87,6 +97,10 @@ public class ConfigLoader {
         return messages;
     }
 
+    /**
+     * Get the config from the config file
+     * @throws IOException if an error occurred when file is open or read
+     */
     private void getConfigFromFile()throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(CFG_PATH,
                 StandardCharsets.UTF_8));
@@ -123,6 +137,9 @@ public class ConfigLoader {
         return matcher.find();
     }
 
+    /**
+     * TODO STP trouve une description
+     */
     private void checkConfig(){
         if (victims.size() < 3)
             throw new RuntimeException("The minimum group size is 3 victims, " +
@@ -132,22 +149,42 @@ public class ConfigLoader {
             throw new RuntimeException("No message detected");
     }
 
+    /**
+     * Get the server port
+     * @return the server port as int
+     */
     public int getServerPort() {
         return serverPort;
     }
 
+    /**
+     * Get the server address
+     * @return the server address as String
+     */
     public String getServerAddress() {
         return serverAddress;
     }
 
+    /**
+     * Get the messages
+     * @return a list of Message
+     */
     public List<Message> getMessages() {
         return messages;
     }
 
+    /**
+     * Get the victimes
+     * @return a list of Victim
+     */
     public List<Victim> getVictims() {
         return victims;
     }
 
+    /**
+     * Get the number of Group
+     * @return the number of groups
+     */
     public int getNumberOfGroups() {
         return numberOfGroups;
     }

@@ -27,6 +27,11 @@ public class Group {
         groupId++;
     }
 
+    /**
+     * Generate an email for a group
+     * @param messages a list of potential message that can be sent.
+     * @return a Mail ready to be used by the SMTP client
+     */
     public Mail generate(List<Message> messages){
         Collections.shuffle(messages);
         return new Mail(messages.get(0), sender, recipients);
