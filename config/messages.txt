@@ -1,7 +1,6 @@
-s:Subject 1
-m:This is a test mail
-with accents éàä
-And special characters 📧 (╯°□°)╯︵
+s:You have been pranked
+m:Hello there, you got pranked! Shame on you!
+(╯°□°)╯︵
 END
 
 
@@ -442,7 +441,7 @@ a[x-apple-data-detectors] {
 												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
 													<tbody>
 														<tr style="border-collapse:collapse">
-															<td align="center" style="padding:0;Margin:0"><span class="es-button-border" style="border-style:solid;border-color:#2CB543;background:#E50914;border-width:0px 0px 2px 0px;display:inline-block;border-radius:5px;width:auto;border-bottom-width:0px"><a class="es-button" href="https://www.dafk.net/what/" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#E50914;border-width:10px 20px 10px 20px;display:inline-block;background:#E50914;border-radius:5px;font-weight:normal;font-style:normal;line-height:22px;width:auto;text-align:center" target="_blank">Reset Password</a></span></td>
+															<td align="center" style="padding:0;Margin:0"><span class="es-button-border" style="border-style:solid;border-color:#2CB543;background:#E50914;border-width:0px 0px 2px 0px;display:inline-block;border-radius:5px;width:auto;border-bottom-width:0px"><a class="es-button" href="https://www.dafk.net/what/" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#E50914;border-width:10px 20px 10px 20px;display:inline-block;background:#E50914;border-radius:5px;font-weight:normal;font-style:normal;line-height:22px;width:auto;text-align:center">Reset Password</a></span></td>
 														</tr>
 													</tbody>
 												</table>
