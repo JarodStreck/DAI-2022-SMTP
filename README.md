@@ -7,7 +7,6 @@ This project makes it possible to create grouped shipments of pranks. The  user 
 
 * Java SDK 17 to run the program
 * Docker installed on your machne to run the mock SMTP server
-* 
 # How to run a prank
 
 
@@ -72,15 +71,13 @@ END
 
 ### MockMock
 
-MockMock is a mock cross-platform SMTP server built on Java. You can find the repo [here](https://github.com/DominiqueComte/MockMock). MockMock is a  simulates a SMTP server locally. It will retrieve all the emails sent from your machine and display them  to it's web interface. This way, it's easy to test the app without sending emails to real people.
+MockMock is a mock cross-platform SMTP server built on Java. You can find the repo [here](https://github.com/DominiqueComte/MockMock). MockMock simulates a SMTP server locally. It will retrieve all the emails sent from your machine and display them  to a web interface. This way, it's easy to test the app without sending emails to real people.
 
-by default, the web interface is running on the port **8282** and the SMTP port is **25**. The mock server will run inside a docker container on our local machine, so we first need to build an image capable of running a Java program:
+by default, the web interface is running on the port **8282** and the SMTP port is running on the port **25**. The mock server will run inside a docker container on our local machine, so we first need to build an image capable of running a Java program:
 
 go inside the ./docker folder, the Dockerfile inside is already configured.
 
-
 _If you want to run MockMock on different ports, change the CMD command in the DockerFile_
-
 
 inside ./docker, run the following command.
 
