@@ -145,6 +145,8 @@ The mail class contains all information needed for the client so send a mail:
 - The recipients email addresses
 - The sender email address
 
+The method getContentType() will return a string containing the content type format used in the client. If the body of the mail contains HTML tags, the content type will be text/html, else it will be text/plain.
+
 **Message**
 
 A simple class that contains the basic implementation of a message i.e a subject and a body/content
