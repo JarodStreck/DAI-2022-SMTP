@@ -98,8 +98,7 @@ Once the image has been created we can create a container
 based on this image. Run the following command : 
 
 ````
-run --name mock_server -p 8282:8282 -p 25:25 
-mockmock
+docker run --name mock_server -p 8282:8282 -p 25:25 mockmock
 ````
 --name gives a name to the container
 
