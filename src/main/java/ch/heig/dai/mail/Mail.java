@@ -59,7 +59,7 @@ public class Mail {
      * @return The content type as String
      */
     public String getContentType(){
-        if(message.getContent().contains("<!doctype html>"))
+        if(message.getContent().contains("<html>"))
             return "Content-Type: text/html;";
         return "Content-Type: text/plain;";
     }

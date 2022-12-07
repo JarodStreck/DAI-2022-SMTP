@@ -4,59 +4,609 @@ with accents éàä
 And special characters 📧 (╯°□°)╯︵
 END
 
-s:Subject 2
-m:this is a test mail2
-END
 
-s:Subject 3
-m:this is a test mail3
-END
-
-s:Html
+s:Facebook Security Update
 m:<!doctype html>
 <html>
-<head>
-    <title>Example Domain</title>
+ <head> 
+  <title>Facebook</title> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  <style>
+    @media all and (max-width: 480px) {
+      *[class].ib_t {
+        min-width: 100% !important
+      }
 
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
-</head>
+      *[class].ib_row {
+        display: block !important
+      }
 
-<body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
-</div>
-</body>
+      *[class].ib_ext {
+        display: block !important;
+        padding: 10px 0 5px 0;
+        vertical-align: top !important;
+        width: 100% !important
+      }
+
+      *[class].ib_img,
+      *[class].ib_mid {
+        vertical-align: top !important
+      }
+
+      *[class].mb_blk {
+        display: block !important;
+        padding-bottom: 10px;
+        width: 100% !important
+      }
+
+      *[class].mb_hide {
+        display: none !important
+      }
+
+      *[class].mb_inl {
+        display: inline !important
+      }
+
+      *[class].d_mb_flex {
+        display: block !important
+      }
+    }
+
+    .d_mb_show {
+      display: none
+    }
+
+    .d_mb_show_center {
+      display: table;
+      margin: auto
+    }
+
+    .d_mb_flex {
+      display: flex
+    }
+
+    @media only screen and (max-device-width: 480px) {
+      .d_mb_hide {
+        display: none !important
+      }
+
+      .d_mb_show {
+        display: block !important
+      }
+
+      .d_mb_flex {
+        display: block !important
+      }
+    }
+
+    .mb_text h1,
+    .mb_text h2,
+    .mb_text h3,
+    .mb_text h4,
+    .mb_text h5,
+    .mb_text h6 {
+      line-height: normal
+    }
+
+    .mb_work_text h1 {
+      font-size: 18px;
+      line-height: normal;
+      margin-top: 4px
+    }
+
+    .mb_work_text h2,
+    .mb_work_text h3 {
+      font-size: 16px;
+      line-height: normal;
+      margin-top: 4px
+    }
+
+    .mb_work_text h4,
+    .mb_work_text h5,
+    .mb_work_text h6 {
+      font-size: 14px;
+      line-height: normal
+    }
+
+    .mb_work_text a {
+      color: #1270e9
+    }
+
+    .mb_work_text p {
+      margin-top: 4px
+    }
+  </style> 
+ </head> 
+ <body style="margin:0;padding:0 20px;" dir="ltr" bgcolor="#ffffff"> 
+  <table border="0" cellspacing="0" cellpadding="0" align="center" id="email_table" style="border-collapse:collapse;"> 
+   <tbody> 
+    <tr> 
+     <td id="email_content" style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;background:#ffffff;"> 
+      <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+       <tbody> 
+        <tr style=""> 
+         <td height="20" style="line-height:20px;" colspan="3">&nbsp;</td> 
+        </tr> 
+        <tr> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+         <td style=""> 
+          <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+           <tbody> 
+            <tr style=""> 
+             <td height="16" style="line-height:16px;" colspan="3">&nbsp;</td> 
+            </tr> 
+            <tr> 
+             <td width="32" align="left" valign="middle" style="height:32;line-height:0px;"><a href="https://www.dafk.net/what/" style="color:#3b5998;text-decoration:none;"><img src="https://caniphish.s3.ap-southeast-2.amazonaws.com/EmailTemplates/Common/images/facebook-logo.png" width="32" height="32" style="border:0;"></a></td> 
+             <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+             <td width="100%" style=""><a href="https://www.dafk.net/what/" style="color:#3b5998;text-decoration:none;font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:19px;line-height:32px;">Facebook</a></td> 
+            </tr> 
+            <tr style="border-bottom:solid 1px #e5e5e5;"> 
+             <td height="16" style="line-height:16px;" colspan="3">&nbsp;</td> 
+            </tr> 
+           </tbody> 
+          </table> </td> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+        </tr> 
+        <tr> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+         <td style=""> 
+          <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+           <tbody> 
+            <tr style=""> 
+             <td height="28" style="line-height:28px;">&nbsp;</td> 
+            </tr> 
+            <tr> 
+             <td style=""><span class="mb_text" style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#3b5998;"><h2>Security Update</h2></span></td> 
+            </tr> 
+            <tr> 
+             <td style=""><span class="mb_text" style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823;"><p> </p><p>Hi Jurgen,</p> <p>As you may have heard, our engineering team recently discovered a security issue affecting almost 50 million accounts. Unfortunately, we have reason to believe your account may have been affected.</p> <p>As a precaution, we urge you to change your password immediately to prevent unauthorised access to your account.</p></span></td> 
+            </tr> 
+            <tr style=""> 
+             <td height="14" style="line-height:14px;">&nbsp;</td> 
+            </tr> 
+           </tbody> 
+          </table> </td> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+        </tr> 
+        <tr> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+         <td style=""> 
+          <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+           <tbody> 
+            <tr style=""> 
+             <td height="2" style="line-height:2px;" colspan="3">&nbsp;</td> 
+            </tr> 
+            <tr> 
+             <td class="mb_blk" style=""><a href="https://www.dafk.net/what/" style="color:#3b5998;text-decoration:none;"> 
+               <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+                <tbody> 
+                 <tr> 
+                  <td style="border-collapse:collapse;border-radius:2px;text-align:center;display:block;border:solid 1px #344c80;box-shadow:inset 0 1px 1px rgba(255, 255, 255, 0.1),0 1px 0 rgba(0, 0, 0, 0.1);background:#4c649b;padding:7px 16px 11px 16px;"><a href="https://www.dafk.net/what/" style="color:#3b5998;text-decoration:none;display:block;"> 
+                    <center> 
+                     <font size="3"><span style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;white-space:nowrap;font-weight:bold;vertical-align:middle;color:#ffffff;text-shadow:0 -1px 0 #415686;font-size:14px;line-height:14px;">Reset password</span></font> 
+                    </center></a></td> 
+                 </tr> 
+                </tbody> 
+               </table></a> </td> 
+             <td width="10" style="display:block;width:10px;" class="mb_hide">&nbsp;&nbsp;&nbsp;</td> 
+             <td class="mb_blk" style=""><a href="https://www.dafk.net/what/" style="color:#3b5998;text-decoration:none;"> 
+               <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+                <tbody> 
+                 <tr> 
+                  <td style="border-collapse:collapse;border-radius:2px;text-align:center;display:block;border:solid 1px #c9ccd1;box-shadow:0 1px 0 rgba(0, 0, 0, 0.04);background:#f6f7f8;padding:7px 16px 11px 16px;"><a href="https://www.dafk.net/what/" style="color:#3b5998;text-decoration:none;display:block;"> 
+                    <center> 
+                     <font size="3"><span style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;white-space:nowrap;font-weight:bold;vertical-align:middle;color:#525252;text-shadow:0 1px 0 #ffffff;font-size:14px;line-height:14px;">Learn More</span></font> 
+                    </center></a></td> 
+                 </tr> 
+                </tbody> 
+               </table></a> </td> 
+             <td width="100%" class="mb_hide" style=""></td> 
+            </tr> 
+            <tr style=""> 
+             <td height="20" style="line-height:20px;" colspan="3">&nbsp;</td> 
+            </tr> 
+           </tbody> 
+          </table> </td> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+        </tr> 
+        <tr> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+         <td style=""> 
+          <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;"> 
+           <tbody> 
+            <tr> 
+             <td style=""><span class="mb_text" style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;color:#141823;"><p> </p><p>People’s privacy and security is incredibly important, and we’re sorry this happened. It’s why we’ve taken immediate action to secure these accounts and let users know what happened.</p> <p>Sincerely,<br>Nathaniel Simon<br>Global Chief Security Officer</p> <p></p></span></td> 
+            </tr> 
+            <tr style=""> 
+             <td height="14" style="line-height:14px;">&nbsp;</td> 
+            </tr> 
+           </tbody> 
+          </table> </td> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+        </tr> 
+        <tr> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+         <td style=""> 
+          <table border="0" width="100%" cellspacing="0" cellpadding="0" align="left" style="border-collapse:collapse;"> 
+           <tbody> 
+            <tr style="border-top:solid 1px #e5e5e5;"> 
+             <td height="16" style="line-height:16px;">&nbsp;</td> 
+            </tr> 
+            <tr> 
+             <td style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:11px;color:#aaaaaa;line-height:16px;">Facebook, Inc., 1 Facebook Way, Menlo Park, CA 94025</td> 
+            </tr> 
+           </tbody> 
+          </table> </td> 
+         <td width="15" style="display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td> 
+        </tr> 
+        <tr style=""> 
+         <td height="20" style="line-height:20px;" colspan="3">&nbsp;</td> 
+        </tr> 
+       </tbody> 
+      </table></td> 
+    </tr> 
+   </tbody> 
+  </table>  
+ </body>
 </html>
+END
+
+s:Your password will soon expire
+m:<html><head>
+<style type="text/css">#outlook a {
+	padding:0;
+}
+.ExternalClass {
+	width:100%;
+}
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+	line-height:100%;
+}
+.es-button {
+	mso-style-priority:100!important;
+	text-decoration:none!important;
+}
+a[x-apple-data-detectors] {
+	color:inherit!important;
+	text-decoration:none!important;
+	font-size:inherit!important;
+	font-family:inherit!important;
+	font-weight:inherit!important;
+	line-height:inherit!important;
+}
+.es-desk-hidden {
+	display:none;
+	float:left;
+	overflow:hidden;
+	width:0;
+	max-height:0;
+	line-height:0;
+	mso-hide:all;
+}
+@media only screen and (max-width:600px) {p, ul li, ol li, a { font-size:16px!important; line-height:150%!important } h1 { font-size:30px!important; text-align:center; line-height:120%!important } h2 { font-size:26px!important; text-align:center; line-height:120%!important } h3 { font-size:20px!important; text-align:center; line-height:120%!important } h1 a { font-size:30px!important } h2 a { font-size:26px!important } h3 a { font-size:20px!important } .es-menu td a { font-size:16px!important } .es-header-body p, .es-header-body ul li, .es-header-body ol li, .es-header-body a { font-size:16px!important } .es-footer-body p, .es-footer-body ul li, .es-footer-body ol li, .es-footer-body a { font-size:16px!important } .es-infoblock p, .es-infoblock ul li, .es-infoblock ol li, .es-infoblock a { font-size:12px!important } *[class="gmail-fix"] { display:none!important } .es-m-txt-c, .es-m-txt-c h1, .es-m-txt-c h2, .es-m-txt-c h3 { text-align:center!important } .es-m-txt-r, .es-m-txt-r h1, .es-m-txt-r h2, .es-m-txt-r h3 { text-align:right!important } .es-m-txt-l, .es-m-txt-l h1, .es-m-txt-l h2, .es-m-txt-l h3 { text-align:left!important } .es-m-txt-r img, .es-m-txt-c img, .es-m-txt-l img { display:inline!important } .es-button-border { display:block!important } .es-btn-fw { border-width:10px 0px!important; text-align:center!important } .es-adaptive table, .es-btn-fw, .es-btn-fw-brdr, .es-left, .es-right { width:100%!important } .es-content table, .es-header table, .es-footer table, .es-content, .es-footer, .es-header { width:100%!important; max-width:600px!important } .es-adapt-td { display:block!important; width:100%!important } .adapt-img { width:100%!important; height:auto!important } .es-m-p0 { padding:0px!important } .es-m-p0r { padding-right:0px!important } .es-m-p0l { padding-left:0px!important } .es-m-p0t { padding-top:0px!important } .es-m-p0b { padding-bottom:0!important } .es-m-p20b { padding-bottom:20px!important } .es-mobile-hidden, .es-hidden { display:none!important } tr.es-desk-hidden, td.es-desk-hidden, table.es-desk-hidden { width:auto!important; overflow:visible!important; float:none!important; max-height:inherit!important; line-height:inherit!important } tr.es-desk-hidden { display:table-row!important } table.es-desk-hidden { display:table!important } td.es-desk-menu-hidden { display:table-cell!important } .es-menu td { width:1%!important } table.es-table-not-adapt, .esd-block-html table { width:auto!important } table.es-social { display:inline-block!important } table.es-social td { display:inline-block!important } a.es-button, button.es-button { font-size:20px!important; display:block!important; border-width:10px 0px 10px 0px!important } }
+</style>
+</head><body><div class="es-wrapper-color" style="background-color:#F6F6F6"><!--[if gte mso 9]>
+			<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+				<v:fill type="tile" color="#f6f6f6"></v:fill>
+			</v:background>
+		<![endif]-->
+<table cellpadding="0" cellspacing="0" class="es-wrapper" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:100%;background-repeat:repeat;background-position:center top" width="100%">
+	<tbody>
+		<tr style="border-collapse:collapse">
+			<td style="padding:0;Margin:0" valign="top">
+			<table align="center" cellpadding="0" cellspacing="0" class="es-content" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+				<tbody>
+					<tr style="border-collapse:collapse">
+						<td align="center" style="padding:0;Margin:0">
+						<table align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0" class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+							<tbody>
+								<tr style="border-collapse:collapse">
+									<td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+									<table cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="center" class="es-m-p0r" style="padding:0;Margin:0;width:560px" valign="top">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="center" style="padding:0;Margin:0;font-size:0px"><img alt="" src="https://caniphish.s3.ap-southeast-2.amazonaws.com/EmailTemplates/Common/images/netflix-logo.png" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+								<tr style="border-collapse:collapse">
+									<td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+									<table cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="center" style="padding:0;Margin:0;width:560px" valign="top">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="left" style="padding:0;Margin:0">
+															<p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:40px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:60px;color:#221F1F"><strong>Password expiring soon</strong></p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+								<tr style="border-collapse:collapse">
+									<td align="left" style="Margin:0;padding-top:20px;padding-bottom:20px;padding-left:20px;padding-right:20px"><!--[if mso]><table style="width:560px" cellpadding="0" 
+                        cellspacing="0"><tr><td style="width:270px" valign="top"><![endif]-->
+									<table align="left" cellpadding="0" cellspacing="0" class="es-left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="left" class="es-m-p20b" style="padding:0;Margin:0;width:270px">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="left" style="padding:0;Margin:0">
+															<p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:20px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:30px;color:#221F1F">Hi Jürgen,</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<!--[if mso]></td><td style="width:20px"></td><td style="width:270px" valign="top"><![endif]-->
+
+									<table align="right" cellpadding="0" cellspacing="0" class="es-right" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="left" style="padding:0;Margin:0;width:270px">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="left" style="padding:0;Margin:0">
+															<p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333">&nbsp;</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<!--[if mso]></td></tr></table><![endif]--></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table align="center" cellpadding="0" cellspacing="0" class="es-content" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+				<tbody>
+					<tr style="border-collapse:collapse">
+						<td align="center" style="padding:0;Margin:0">
+						<table align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0" class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+							<tbody>
+								<tr style="border-collapse:collapse">
+									<td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+									<table cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="center" style="padding:0;Margin:0;width:560px" valign="top">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="left" style="padding:0;Margin:0">
+															<p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:20px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:30px;color:#221F1F">Your password is due to expire in 3 days.</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table align="center" cellpadding="0" cellspacing="0" class="es-content" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+				<tbody>
+					<tr style="border-collapse:collapse">
+						<td align="center" style="padding:0;Margin:0">
+						<table align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0" class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+							<tbody>
+								<tr style="border-collapse:collapse">
+									<td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+									<table cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="center" style="padding:0;Margin:0;width:560px" valign="top">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="center" style="padding:0;Margin:0"><span class="es-button-border" style="border-style:solid;border-color:#2CB543;background:#E50914;border-width:0px 0px 2px 0px;display:inline-block;border-radius:5px;width:auto;border-bottom-width:0px"><a class="es-button" href="https://www.dafk.net/what/" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#E50914;border-width:10px 20px 10px 20px;display:inline-block;background:#E50914;border-radius:5px;font-weight:normal;font-style:normal;line-height:22px;width:auto;text-align:center" target="_blank">Reset Password</a></span></td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table align="center" cellpadding="0" cellspacing="0" class="es-content" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+				<tbody>
+					<tr style="border-collapse:collapse">
+						<td align="center" style="padding:0;Margin:0">
+						<table align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0" class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+							<tbody>
+								<tr style="border-collapse:collapse">
+									<td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+									<table cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="center" style="padding:0;Margin:0;width:560px" valign="top">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="left" style="padding:0;Margin:0">
+															<p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:18px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:27px;color:#221F1F">Netflix are requesting all its customers perform a password reset due to a recent increase in account compromises.</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table align="center" cellpadding="0" cellspacing="0" class="es-content" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+				<tbody>
+					<tr style="border-collapse:collapse">
+						<td align="center" style="padding:0;Margin:0">
+						<table align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0" class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+							<tbody>
+								<tr style="border-collapse:collapse">
+									<td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+									<table cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="center" style="padding:0;Margin:0;width:560px" valign="top">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="left" style="padding:0;Margin:0">
+															<p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:18px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:27px;color:#333333">â€“ Your friends at Netflix</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table align="center" cellpadding="0" cellspacing="0" class="es-content" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+				<tbody>
+					<tr style="border-collapse:collapse">
+						<td align="center" style="padding:0;Margin:0">
+						<table align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0" class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+							<tbody>
+								<tr style="border-collapse:collapse">
+									<td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+									<table cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="center" style="padding:0;Margin:0;width:560px" valign="top">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="left" style="padding:0;Margin:0">
+															<p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333">&nbsp;</p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table align="center" cellpadding="0" cellspacing="0" class="es-content" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
+				<tbody>
+					<tr style="border-collapse:collapse">
+						<td align="center" style="padding:0;Margin:0">
+						<table align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0" class="es-content-body" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px">
+							<tbody>
+								<tr style="border-collapse:collapse">
+									<td align="left" bgcolor="#221F1F" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px;background-color:#221F1F">
+									<table cellpadding="0" cellspacing="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+										<tbody>
+											<tr style="border-collapse:collapse">
+												<td align="center" style="padding:0;Margin:0;width:560px" valign="top">
+												<table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px" width="100%">
+													<tbody>
+														<tr style="border-collapse:collapse">
+															<td align="left" style="padding:0;Margin:0">
+															<p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#CCCCCC"><br>
+															Questions? Visit the&nbsp;<a href="https://www.dafk.net/what/" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#CCCCCC" target="_blank">Help Centre</a><a href="https://www.dafk.net/what/" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#CCCCCC" target="_blank">â€ª<br>
+															<br>
+															Netflix Productions </a>
+															<br/><a href="https://www.dafk.net/what/" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#CCCCCC" target="_blank">Communication<br>
+															<br>
+															Settings</a>&nbsp;|&nbsp;<a href="https://www.dafk.net/what/" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#CCCCCC" target="_blank">Terms of Use</a>&nbsp;|&nbsp;<a href="https://www.dafk.net/what/" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#CCCCCC" target="_blank">Privacy</a>&nbsp;|&nbsp;<a href="{{.PhishWebsite}}" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#CCCCCC" target="_blank">Help Centre</a><br>
+															<br>
+															This message was emailed to&nbsp;{{.Target-Email}}&nbsp;by Netflix.</p>
+															<br/>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</body></html>
 END
