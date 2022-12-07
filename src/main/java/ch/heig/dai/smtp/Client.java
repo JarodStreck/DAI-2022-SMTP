@@ -6,7 +6,9 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class Client {
@@ -14,17 +16,37 @@ public class Client {
     private BufferedReader is;
     private BufferedWriter os;
 
+    private final String host;
+    private final int port;
+
     private static final Logger LOG = Logger.getLogger(Client.class.getName());
     private static final String EOL = "\r\n";
+
+    public Client(String host,int port){
+        this.host = host;
+        this.port = port;
+    }
 
     public boolean isConnected() {
         return !socket.isClosed();
     }
-
+    public void send(Mail mail){
+        run(mail);
+    }
     //TODO : Here we must implement a public method send(Mail mail) and use connect from the main
-    public void run(Mail mail, int port, String host){
+    private void run(Mail mail){
+        List<String> recipients = mail.getRecipientsMail();
+        StringBuilder recipientsString = new StringBuilder();
+        for(int i = 0 ; i < recipients.size(); i ++){
+            if(i < recipients.size() -1){
+                recipientsString.append(recipients.get(i)).append(",");
+            }else{
+                recipientsString.append(recipients.get(i));
+            }
+        }
+        LOG.info("["+ recipientsString.toString()+"]");
         try {
-            if (this.connect("localhost", 25)) {
+            if (this.connect(host, port)) {
                 LOG.info("Send mail with SMTP protocol.");
                 String line = is.readLine();
                 LOG.info(line);
@@ -33,21 +55,26 @@ public class Client {
                     line = is.readLine();
                     LOG.info(line);
                 }
-                write("MAIL FROM:fromplaceholder@gmail.com");
-                write("RCPT TO:toplaceholder@gmail.com");
+
+                write("MAIL FROM:" + mail.getSenderMail());
+
+                for(String recipient : recipients){
+                    write("RCPT TO:"+ recipient);
+                }
+
                 write("DATA");
-                //TODO on peut remplacer ça par un seul write() en mettant tout dedans
                 os.write("Content-Type: text/plain; charset=utf-8" + EOL);
-                os.write("From: fromplaceholder@gmail.com" + EOL);
-                os.write("To: toplaceholder@gmail.com" + EOL);
-                String subject = "Email de test";
+                os.write("From: " + mail.getSenderMail() + EOL);
+                os.write("To: " + recipientsString);
+                os.write(EOL);
+
                 // Reference for base64 encoding
                 // https://www.telemessage.com/developer/faq/how-do-i-encode-non-ascii-characters-in-an-email-subject-line/
-                os.write("Subject:=?utf-8?B?" + Base64.getEncoder().encodeToString(subject.getBytes())
+                os.write("Subject:=?utf-8?B?" + Base64.getEncoder().encodeToString(mail.getSubject().getBytes())
                         + "?=" + EOL);
                 os.write(EOL);
                 os.flush();
-                os.write("Salut c'est moi loclahost" + EOL);
+                os.write(mail.getContent() + EOL);
                 write(".");
                 line = is.readLine();
                 LOG.info(line);
@@ -68,7 +95,7 @@ public class Client {
             System.err.println(re.getMessage());
         }
     }
-    boolean connect(String host, int port) {
+    private boolean connect(String host, int port) {
         try {
             this.socket = new Socket(host, port);
             os = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),
@@ -91,7 +118,7 @@ public class Client {
         }
     }
 
-    public void write(String request) {
+    private void write(String request) {
         try {
             os.write(request + EOL);
             os.flush();

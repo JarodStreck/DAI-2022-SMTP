@@ -2,6 +2,7 @@ import ch.heig.dai.config.ConfigLoader;
 import ch.heig.dai.mail.Group;
 import ch.heig.dai.mail.Mail;
 import ch.heig.dai.mail.MailGenerator;
+import ch.heig.dai.smtp.Client;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,8 @@ public class Main {
         for(Group g : groups){
             mails.add(generator.generate(g));
         }
-
+        Client client = new Client(cl.getServerAddress(),cl.getServerPort());
+        client.send(mails.get(0));
 
 
 //        Client client = new Client();
