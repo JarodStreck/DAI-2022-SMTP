@@ -134,7 +134,7 @@ The client manages connection and communication with the SMTP server. It will en
 
 The group contains the recipients and the sender of the mail. More importantly, it offers the method generate() that will  generate a mail object with random recipients, a random sender and a randomly selected message. The minimum size of a group is 3, 1 sender and 2 recipients.
 
-If the user did not put enough email addresses in the victims.txt file, the programm will show an error and exit. The number of email addresses must be at least 3 times greater than the number of group.
+If the user did not put enough email addresses in the victims.txt file, the program will show an error and exit. The number of email addresses must be at least 3 times greater than the number of group.
 
 **Mail**
 
