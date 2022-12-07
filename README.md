@@ -1,31 +1,31 @@
 # Description
 
-<div style="text-align: justify"> 
+
 This project makes it possible to create grouped shipments of pranks. The  user can define a list of victim emails as well as prank messages to  send. Subsequently, the program will take care of creating groups and  randomly send one of the messages to each group.
-</div>
+
 # Prerequisite
 
 * Java SDK 17 to run the program
 * Docker installed on your machne to run the mock SMTP server
+* 
 # How to run a prank
 
-<div style="text-align: justify"> 
+
 To successfully prank people, there is a few steps you need to follow. Firstly clone this repo on your machine.
-</div>
+
 ## Edit config files
 
-<div style="text-align: justify"> 
+
 In order to make the program works, you need to configure it with the three configuration files available in ./config folder.
-</div>
+
 ### config.properties
 
-<div style="text-align: justify"> 
 This config file manage the server address and port and the number of group you want to create for your prank. This file must contain 3 properties:
 
 - serverAddress : The address of the mock server.
 - serverPort: port on which the mock SMTP server is listenning.
 - groups: The number of groups you want to create. If you enter 1, then a random mail will be sent to all email addresses located in the victims.txt file. If you enter a value > 1, the program will create unique groups of victims based on the number of email addresses stored in the victims.txt file.
-</div>
+
 Example :
 ```
 serverAddress=localhost
@@ -35,11 +35,10 @@ groups=5
 
 ### victims.txt
 
-<div style="text-align: justify"> 
 This is the list of your victims. they must be valid email addresses that follows the RFC 5322 (more info  [here](https://datatracker.ietf.org/doc/html/rfc5322) and [here](https://stackoverflow.com/questions/13992403/regex-validation-of-email-addresses-according-to-rfc5321-rfc5322)). If at least one mail is not valid, the program will throw an exception and exit. Each line must contain a single email address, without any space between them.
 
 If you plan to send pranks to 5 groups, you will need a minimum of 15 email addresses, because the minimum size of a group is 3 (1 sender and 2 recipients).
-</div>
+
 Example :
 
 ```
@@ -73,13 +72,12 @@ END
 
 ### MockMock
 
-<div style="text-align: justify"> 
 MockMock is a mock cross-platform SMTP server built on Java. You can find the repo [here](https://github.com/DominiqueComte/MockMock). MockMock is a  simulates a SMTP server locally. It will retrieve all the emails sent from your machine and display them  to it's web interface. This way, it's easy to test the app without sending emails to real people.
 
 by default, the web interface is running on the port **8282** and the SMTP port is **25**. The mock server will run inside a docker container on our local machine, so we first need to build an image capable of running a Java program:
 
 go inside the ./docker folder, the Dockerfile inside is already configured.
-<div style="text-align: justify"> 
+
 
 _If you want to run MockMock on different ports, change the CMD command in the DockerFile_
 
@@ -118,11 +116,10 @@ java -jar DAI-2022-SMTP-1.0-SNAPSHOT.jar
 
 ## Class diagram
 
-![UML](.\figures\UML.png)
+![UML](/figures/UML.png)
 
 ## Classes description
 
-<div style="text-align: justify"> 
 The architecture is fairly simple : in one hand, we must connect to a SMTP server with a client and send some emails. In the other hand we must retrieve messages, email addresses and manipulate them to form an email usable by the SMTP client.
 
 **Config loader**
@@ -151,4 +148,3 @@ The mail class contains all information needed for the client so send a mail:
 **Message**
 
 A simple class that contains the basic implementation of a message i.e a subject and a body/content
-</div>
